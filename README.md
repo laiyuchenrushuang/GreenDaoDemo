@@ -117,7 +117,9 @@
  */
  
   @Entity
+  
   public class PersonInfor {
+  
     @Id(autoincrement = true)//设置自增长
     private Long id;
 
