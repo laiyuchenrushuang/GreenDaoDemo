@@ -66,24 +66,24 @@
        //删除多条数据
        public void delete(PersonInfor personinfor) {
 
-        QueryBuilder<PersonInfor> builder = personInforDao.queryBuilder();
+            QueryBuilder<PersonInfor> builder = personInforDao.queryBuilder();
 
         //可以利用反射 获取成员变量的值 然后遍历加进去
-        if (!TextUtils.isEmpty(personinfor.getPerNo()) && personinfor.getPerNo() != null && !"/".equals(personinfor.getPerNo())) {  //编号
-            builder.where(PersonInforDao.Properties.PerNo.eq(personinfor.getPerNo()));
-        }
+            if (!TextUtils.isEmpty(personinfor.getPerNo()) && personinfor.getPerNo() != null && !"/".equals(personinfor.getPerNo())) {  //编号
+                  builder.where(PersonInforDao.Properties.PerNo.eq(personinfor.getPerNo()));
+            }   
 
-        if (!TextUtils.isEmpty(personinfor.getName()) && personinfor.getName() != null && !"/".equals(personinfor.getName())) {  //名字
-            builder.where(PersonInforDao.Properties.Name.eq(personinfor.getName()));
-        }
+            if (!TextUtils.isEmpty(personinfor.getName()) && personinfor.getName() != null && !"/".equals(personinfor.getName())) {  //名字
+                builder.where(PersonInforDao.Properties.Name.eq(personinfor.getName()));
+            }
 
-        if (!TextUtils.isEmpty(personinfor.getSex()) && personinfor.getSex() != null && !"/".equals(personinfor.getSex())) {  //性别
-            builder.where(PersonInforDao.Properties.Sex.eq(personinfor.getSex()));
-        }
+            if (!TextUtils.isEmpty(personinfor.getSex()) && personinfor.getSex() != null && !"/".equals(personinfor.getSex())) {  //性别
+               builder.where(PersonInforDao.Properties.Sex.eq(personinfor.getSex()));
+            }
 
-        builder.buildDelete().executeDeleteWithoutDetachingEntities();
+               builder.buildDelete().executeDeleteWithoutDetachingEntities();
 
-    }
+         }
     
     
  3.改
@@ -115,8 +115,9 @@
 /**
  * Created by ly on 2020/5/21 14:37
  */
-@Entity
-public class PersonInfor {
+ 
+  @Entity
+  public class PersonInfor {
     @Id(autoincrement = true)//设置自增长
     private Long id;
 
