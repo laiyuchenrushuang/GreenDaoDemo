@@ -187,7 +187,7 @@
     }
 }
 
-![image](https://github.com/laiyuchenrushuang/GreenDaoDemo/blob/master/GreenDao/greendao%E7%95%8C%E9%9D%A2.png)
+![image](https://github.com/laiyuchenrushuang/GreenDaoDemo/blob/master/GreenDao/greendao.png)
 
    
    
