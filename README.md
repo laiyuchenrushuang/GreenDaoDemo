@@ -88,6 +88,25 @@
     
  3.改
  
+     
+    /**
+     * 更新数据
+     *
+     * @param personInfor
+     */
+    public void update(PersonInfor personInfor) {
+        PersonInfor mOldPersonInfor = personInforDao.queryBuilder().where(PersonInforDao.Properties.PerNo.eq(personInfor.getPerNo())).build().unique();//拿到之前的记录
+        if (mOldPersonInfor != null) {
+            mOldPersonInfor.setPerNo(personInfor.getPerNo());
+            mOldPersonInfor.setName(personInfor.getName());
+            mOldPersonInfor.setSex(personInfor.getSex());
+            personInforDao.update(mOldPersonInfor);
+        }
+    }
+ 
+   //这里主要重点  unique()  这个unique 看是标记的哪个唯一变量
+ 
+ 
  4.查
       /**
      * 查询所有数据
@@ -99,6 +118,27 @@
     }
     
 
+        /**
+     * 查询条件数据
+     */
+    public List<PersonInfor> query(PersonInfor personinfor) {
+        QueryBuilder<PersonInfor> builder = personInforDao.queryBuilder();
+
+        //可以利用反射 获取成员变量的值 然后遍历加进去
+        if (!TextUtils.isEmpty(personinfor.getPerNo()) && personinfor.getPerNo() != null && !"/".equals(personinfor.getPerNo())) {  //编号
+            builder.where(PersonInforDao.Properties.PerNo.eq(personinfor.getPerNo()));
+        }
+
+        if (!TextUtils.isEmpty(personinfor.getName()) && personinfor.getName() != null && !"/".equals(personinfor.getName())) {  //名字
+            builder.where(PersonInforDao.Properties.Name.eq(personinfor.getName()));
+        }
+
+        if (!TextUtils.isEmpty(personinfor.getSex()) && personinfor.getSex() != null && !"/".equals(personinfor.getSex())) {  //性别
+            builder.where(PersonInforDao.Properties.Sex.eq(personinfor.getSex()));
+        }
+
+        return builder.list();
+    }
    
    
    
@@ -187,7 +227,12 @@
     }
 }
 
+
+### 其他资料
+
 ![image](https://github.com/laiyuchenrushuang/GreenDaoDemo/blob/master/GreenDao/greendao.png)
+
+代码地址：https://github.com/laiyuchenrushuang/Allinspection
 
    
    
