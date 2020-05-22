@@ -84,7 +84,12 @@
                builder.buildDelete().executeDeleteWithoutDetachingEntities();
 
          }
-    
+      /**
+     * 删除所有数据
+     */
+    public void deleteAll(){
+        personInforDao.deleteAll();
+    }
     
  ####.改
  
