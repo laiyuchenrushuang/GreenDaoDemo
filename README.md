@@ -219,7 +219,7 @@ daoSession .clear();
 UserDao userDao = MyApplication.getInstances().getDaoSession().getUserDao();  
 userDao.detachAll();
 
-6. 数据库加密
+### 数据库加密
 
 添加依赖  
 
