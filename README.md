@@ -291,17 +291,17 @@ mDaoSession = mDaoMaster.newSession();
     }
 ###  代码混淆  
 
-在proguard-rules.pro文件中添加以下内容进行混淆配置  
-# greenDAO开始  
+在proguard-rules.pro文件中添加以下内容进行混淆配置 
+'# greenDAO开始  
 -keepclassmembers class * extends org.greenrobot.greendao.AbstractDao {  
 public static java.lang.String TABLENAME;  
 }  
 -keep class **$Properties  
-# If you do not use SQLCipher:  
+'# If you do not use SQLCipher:  
 -dontwarn org.greenrobot.greendao.database.**  
-# If you do not use RxJava:  
+'# If you do not use RxJava:  
 -dontwarn rx.**  
-# greenDAO结束  
+'# greenDAO结束 '
  
  
 # 如果按照上面介绍的加入了数据库加密功能，则需添加一下配置
